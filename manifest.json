@@ -1,6 +1,6 @@
 {
-  "name": "Vue Hackernews 2.0",
-  "short_name": "Vue HN",
+  "name": "cityscapes",
+  "short_name": "cityscapes",
   "icons": [{
       "src": "/public/logo-120.png",
       "sizes": "120x120",

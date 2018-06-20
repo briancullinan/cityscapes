@@ -1,5 +1,3 @@
-import ItemList from './ItemList.vue'
-
 const camelize = str => str.charAt(0).toUpperCase() + str.slice(1)
 
 // This is a factory function for dynamically creating root-level list views,
@@ -7,16 +5,17 @@ const camelize = str => str.charAt(0).toUpperCase() + str.slice(1)
 // They are essentially higher order components wrapping ItemList.vue.
 export default function createListView (type) {
   return {
-    name: `${type}-stories-view`,
+    name: 'builder-view',
 
-    asyncData ({ store }) {
-      return store.dispatch('FETCH_LIST_DATA', { type })
+    props: ['product', 'image'],
+
+    title: function () {
+      return camelize(`${this.product} ${type.name}`)
     },
 
-    title: camelize(type),
-
     render (h) {
-      return h(ItemList, { props: { type }})
+      console.log(this.product);
+      return h(type, { props: { product: this.product, image: this.image }})
     }
   }
 }
