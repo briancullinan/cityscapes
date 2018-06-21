@@ -1,0 +1,26 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl Black_End_Cap_Plastic
+Ka 0.000000 0.000000 0.000000
+Kd 0.117647 0.117647 0.117647
+Ks 0.330000 0.330000 0.330000
+
+newmtl Cedar
+Ka 0.000000 0.000000 0.000000
+Kd 0.796078 0.690196 0.494118
+Ks 0.330000 0.330000 0.330000
+map_Kd Planx_RaisedBed_24x48_CedarPlanks_CityBrownPosts/Cedar.jpg
+
+newmtl _City_Brown
+Ka 0.000000 0.000000 0.000000
+Kd 0.854902 0.376471 0.733333
+Ks 0.330000 0.330000 0.330000
+map_Kd Planx_RaisedBed_24x48_CedarPlanks_CityBrownPosts/_City_Brown.jpg
+
+newmtl Liner_Tray_Plastic
+Ka 0.000000 0.000000 0.000000
+Kd 0.215686 0.188235 0.168627
+Ks 0.330000 0.330000 0.330000
+

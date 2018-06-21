@@ -1,3 +1,4 @@
+/*
 // this is aliased in webpack config based on server/client build
 import { createAPI } from 'create-api'
 
@@ -74,3 +75,4 @@ export function watchList (type, cb) {
     ref.off('value', handler)
   }
 }
+*/

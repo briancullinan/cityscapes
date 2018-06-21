@@ -76,6 +76,50 @@ h1, h2 {
   text-align: center;
 }
 
+h1.angle-header {
+  width: 100%;
+  background: #076323;
+  color: white;
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  z-index: 0;
+  overflow: hidden;
+
+  i, &:before, &:after {
+    content: ' ';
+    display: block;
+    height: 100px;
+    border-left: 600px solid transparent;
+    border-right: 600px solid transparent;
+    border-top: 20px solid #076323;
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+    top: 100%;
+    z-index: -1;
+  }
+
+  i {
+    background: white;
+    margin-top: -20px;
+  }
+
+  &:before {
+    border-right: 700px solid transparent;
+    margin-left: -610px;
+    border-top: 40px solid #88A4B1;
+    top: 0;
+  }
+
+  &:after {
+    border-left: 700px solid transparent;
+    margin-left: -700px;
+    border-top: 30px solid white;
+    top: -10px;
+  }
+}
+
 h1 strong, h2 strong, h3 strong {
   font-weight: normal;
   border-top: 1px solid lightgray;
@@ -109,7 +153,7 @@ h1 strong, h2 strong, h3 strong {
   height: 100%;
 }
 
-a {
+a[href] {
   color: #34495e;
   text-decoration: none;
 }
@@ -274,6 +318,10 @@ a.btn {
 @media (max-height: 500px) {
   body, html {
     font-size: 16px;
+  }
+
+  .drawer ~ * {
+    padding-top: 65px;
   }
 
   .header {

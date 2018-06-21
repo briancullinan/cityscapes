@@ -54,149 +54,157 @@ export default {
 </script>
 
 <style lang="stylus">
-.product-container {
-  position: absolute;
-  top: 100%;
-}
-
-.gallery-overlap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  justify-content: center;
-  animation: hide-first 40s infinite linear;
-  opacity: 0;
-
-  img {
-    flex-shrink: 0;
-    min-width: 120%;
-    min-height: 120%;
-    height: auto;
-    width: auto;
-    position: relative;
-    animation: top-right-panning 40s infinite linear;
+.gallery-pan {
+  .product-container {
+    position: absolute;
+    top: 100%;
+    margin-top: -140px;
   }
 
-  &:nth-of-type(2) img {
-    animation: bottom-right-panning 40s infinite linear;
+  h1.angle-header {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-top: 0;
+    padding-bottom: 50px;
   }
 
-  &:nth-of-type(3) img {
-    animation: bottom-left-panning 40s infinite linear;
+  .gallery-overlap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+    animation: hide-first 40s infinite linear;
+    opacity: 0;
+
+    img {
+      flex-shrink: 0;
+      min-width: 120%;
+      min-height: 120%;
+      height: auto;
+      width: auto;
+      position: relative;
+      animation: top-right-panning 40s infinite linear;
+    }
+
+    &:nth-of-type(2) img {
+      animation: bottom-right-panning 40s infinite linear;
+    }
+
+    &:nth-of-type(3) img {
+      animation: bottom-left-panning 40s infinite linear;
+    }
+
+    &:nth-of-type(4) img {
+      animation: top-left-panning 40s infinite linear;
+    }
+
+    &:nth-of-type(2) {
+      animation: hide-second 40s infinite linear;
+    }
+
+    &:nth-of-type(3) {
+      animation: hide-third 40s infinite linear;
+    }
+
+    &:nth-of-type(4) {
+      animation: hide-fourth 40s infinite linear;
+    }
   }
 
-  &:nth-of-type(4) img {
-    animation: top-left-panning 40s infinite linear;
-  }
-
-  &:nth-of-type(2) {
-    animation: hide-second 40s infinite linear;
-  }
-
-  &:nth-of-type(3) {
-    animation: hide-third 40s infinite linear;
-  }
-
-  &:nth-of-type(4) {
-    animation: hide-fourth 40s infinite linear;
-  }
-}
-
-.caption {
-  position: absolute;
-  left: 40px;
-  bottom: 0;
-  width: 350px;
-  padding: 92px 0 0;
-  text-align: center;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-
-  h2 {
-    color: #FFFFFF;
-    margin: 0;
-    padding: 20px 20px 0;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    font-size: 3em;
-    font-weight: normal;
-    line-height: 1.125em;
-    background: rgba(7, 99, 35, 0.7);
-    hyphens: manual;
-    min-height: 30%;
+  .caption {
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    width: 350px;
+    padding: 92px 0 0;
+    text-align: center;
+    top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    h2 {
+      color: #FFFFFF;
+      margin: 0;
+      padding: 20px 20px 0;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      font-size: 3em;
+      font-weight: normal;
+      line-height: 1.125em;
+      background: rgba(7, 99, 35, 0.7);
+      hyphens: manual;
+      min-height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    p {
+      margin: 0;
+      color: #FFFFFF;
+      padding: 20px 20px;
+      font-size: 1.25em;
+      line-height: 1.25em;
+      background: rgba(7, 99, 35, 0.7);
+      display: block;
+      min-height: 10%;
+    }
+
+    span {
+      position: relative;
+      display: block;
+      height: 40px;
+      margin: 0;
+      background: rgba(7, 99, 35, 0.7);
+      border-radius: 0 0 100% 100%;
+      display: block;
+    }
   }
 
-  p {
-    margin: 0;
-    color: #FFFFFF;
-    padding: 20px 20px;
-    font-size: 1.25em;
-    line-height: 1.25em;
-    background: rgba(7, 99, 35, 0.7);
-    display: block;
-    min-height: 10%;
-  }
+  @media (max-width: 800px) {
+    .gallery-overlap {
+      .caption {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: auto;
+        background: white;
+        padding-top: 0;
 
-  span {
-    position: relative;
-    display: block;
-    height: 40px;
-    margin: 0;
-    background: rgba(7, 99, 35, 0.7);
-    border-radius: 0 0 100% 100%;
-    display: block;
-  }
-}
+        h2 {
+          padding: 5px;
+          font-size: 1.5em;
+        }
 
-@media (max-width: 800px) {
-  .gallery-overlap {
-    padding-bottom: 200px;
+        span {
+          border-radius: 0;
+          height: 0;
+        }
 
-    .caption {
-      top: auto;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: auto;
-      background: white;
-      padding-top: 0;
-
-      h2 {
-        padding: 5px;
-        font-size: 1.5em;
-      }
-
-      span {
-        border-radius: 0;
-        height: 0;
-      }
-
-      p {
-        padding: 5px;
+        p {
+          padding: 5px;
+        }
       }
     }
   }
-}
 
-@media (max-height: 500px) {
-  .gallery-overlap {
-    .caption {
-      h2 {
-        font-size: 1.5em;
-        padding: 5px;
-      }
+  @media (max-height: 500px) {
+    .gallery-overlap {
+      .caption {
+        h2 {
+          font-size: 1.5em;
+          padding: 5px;
+        }
 
-      p {
-        padding: 5px;
+        p {
+          padding: 5px;
+        }
       }
     }
   }
