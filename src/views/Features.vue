@@ -68,7 +68,7 @@
                 <router-link class="btn" to="gallery">Photo Gallery</router-link>
             </div>
 
-            <div class="image-wrapper">
+            <div class="image-container">
                 <h2>
                     <strong>Approved for use with popular brands</strong>
                 </h2>
@@ -87,9 +87,13 @@
 
 <script>
 import BuilderMenu from "./BuilderMenu.vue";
+const camelize = str => str.charAt(0).toUpperCase() + str.slice(1)
 
 export default {
   name: "features",
+  title: function() {
+    return camelize(`${this.product} ${this.$options.name}`);
+  },
   props: ["product"],
   components: { BuilderMenu }
 };
@@ -145,10 +149,6 @@ export default {
         top: 100%;
         margin-top: -180px;
         padding-bottom: 60px;
-
-        .image-wrapper {
-            text-align: center;
-        }
     }
 
     .applications-wrapper {
@@ -185,14 +185,18 @@ export default {
         }
     }
 
-    .image-wrapper {
+    .image-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        padding: 40px;
         background: white;
+    }
+
+    .image-wrapper {
+        padding: 40px;
         flex-basis: 50%;
+        text-align: center;
 
         img {
             max-width: 100%;
@@ -238,6 +242,10 @@ export default {
     @media (max-height: 500px) {
         .background-wrapper {
             bottom: 38px;
+        }
+
+        .image-wrapper {
+            flex-basis: 100%;
         }
 
         .banner-box {

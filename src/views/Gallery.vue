@@ -52,8 +52,6 @@
 .gallery-container {
     background: white;
     padding-bottom: 60px;
-    padding: left 20px;
-    padding: right 20px;
 
     .selected-image {
         .selected-wrapper, .selected-properties, .close {
@@ -118,6 +116,7 @@
     .thumb-wrapper {
         display: flex;
         flex-wrap: wrap;
+        padding: 20px;
     }
 
     @media (max-width: 800px) {
@@ -146,9 +145,13 @@
 <script>
 import BuilderMenu from "./BuilderMenu.vue";
 import GalleryImage from "./GalleryImage.vue";
+const camelize = str => str.charAt(0).toUpperCase() + str.slice(1)
 
 export default {
   name: "gallery",
+  title: function() {
+    return camelize(`${this.product} ${this.$options.name}`);
+  },
   props: ["product", "image"],
   components: { BuilderMenu, GalleryImage }
 };

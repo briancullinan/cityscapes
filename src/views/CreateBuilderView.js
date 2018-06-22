@@ -10,7 +10,7 @@ export default function createListView (type) {
     props: ['product', 'image'],
 
     title: function () {
-      return camelize(`${this.product} ${type.name}`)
+      return camelize(`${this.product}`)
     },
 
     render (h) {

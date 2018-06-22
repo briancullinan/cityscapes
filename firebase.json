@@ -1,6 +1,10 @@
 {
     "functions": {
-        "source": "."
+        "source": ".",
+        "ignore": [
+            "**/.*",
+            "**/public/*/**"
+        ]
     },
     "hosting": {
         "public": "./dist",

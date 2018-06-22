@@ -15,6 +15,7 @@
     right: 0;
     top: auto;
     display: flex;
+    z-index: 999;
 }
 
 .builder-menu a {

@@ -195,9 +195,13 @@
 import BuilderMenu from "./BuilderMenu.vue";
 import * as THREE from "three";
 import { ColladaLoader } from "../util/ColladaLoader";
+const camelize = str => str.charAt(0).toUpperCase() + str.slice(1)
 
 export default {
   name: "styles",
+  title: function() {
+    return camelize(`${this.product} ${this.$options.name}`);
+  },
   props: ["product"],
   components: { BuilderMenu },
   data() {

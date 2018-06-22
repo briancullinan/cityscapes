@@ -77,6 +77,14 @@
             flex-shrink: 0;
         }
     }
+
+    @media (max-width: 500px) {
+        .selected-properties {
+            top: 100%;
+            left: 0;
+            width: 100%;
+        }
+    }
 }
 </style>
 
