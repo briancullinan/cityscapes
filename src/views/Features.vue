@@ -120,7 +120,6 @@ export default {
     h1.angle-header {
         margin-top: 0;
         margin-bottom: 0;
-        border-top: 0;
 
         i {
             display: none;

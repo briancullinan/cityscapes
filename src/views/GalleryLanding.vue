@@ -170,11 +170,10 @@ export default {
     .gallery-overlap {
       .caption {
         top: auto;
-        bottom: 0;
+        bottom: 140px;
         left: 0;
         right: 0;
         width: auto;
-        background: white;
         padding-top: 0;
 
         h2 {

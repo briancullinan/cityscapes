@@ -49,17 +49,17 @@
 </template>
 
 <style lang="stylus">
-.selected-image {
-    .selected-wrapper, .selected-properties, .close {
-        display: none;
-    }
-}
-
 .gallery-container {
     background: white;
     padding-bottom: 60px;
     padding: left 20px;
     padding: right 20px;
+
+    .selected-image {
+        .selected-wrapper, .selected-properties, .close {
+            display: none;
+        }
+    }
 
     &.image {
         h1, .thumb-wrapper {

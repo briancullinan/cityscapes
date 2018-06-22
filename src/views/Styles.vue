@@ -149,7 +149,7 @@
 
     .color {
       text-align: center;
-      flex-basis: 50%;
+      width: 50%;
     }
   }
 
@@ -163,14 +163,38 @@
     color: white;
     text-shadow: 1px 1px 0 #0B5E24, -1px -1px 0 #0B5E24, 1px -1px 0 #0B5E24, -1px 1px 0 #0B5E24, 1px 1px 0 #0B5E24;
   }
+
+  @media (max-width: 800px) {
+    .styles-wrapper {
+      top: 100%;
+      margin-top: -180px;
+      left: 0;
+      width: 100%;
+      padding-top: 0;
+    }
+
+    h1.angle-header:after {
+      top: -10px;
+    }
+
+    h1.angle-header {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .color-wrapper {
+      .color {
+        width: 25%;
+      }
+    }
+  }
 }
 </style>
 
 <script>
 import BuilderMenu from "./BuilderMenu.vue";
 import * as THREE from "three";
-import collada from "three-loaders-collada";
-collada(THREE);
+import { ColladaLoader } from "../util/ColladaLoader";
 
 export default {
   name: "styles",
@@ -185,14 +209,16 @@ export default {
     this.load3D();
   },
   watch: {
-    body_color: function () {
-      this.updateMaterial(this.cube, this.getRGBOption(this.body_color))
+    body_color: function() {
+      this.updateMaterial(this.cube, this.getRGBOption(this.body_color));
     }
   },
   methods: {
     getRGBOption(color) {
       var selected = document.evaluate(
-        '//input[contains(@value, "' + color + '")]/parent::label/*[contains(@class, "color-box")]/@data-color',
+        '//input[contains(@value, "' +
+          color +
+          '")]/parent::label/*[contains(@class, "color-box")]/@data-color',
         document,
         null,
         XPathResult.STRING_TYPE
@@ -233,7 +259,7 @@ export default {
         : null;
     },
     setCamera: function(camera, cube) {
-      const offset = 4.5;
+      const offset = 0;
       const boundingBox = new THREE.Box3();
       boundingBox.setFromObject(cube);
       const center = boundingBox.getCenter();
@@ -244,16 +270,16 @@ export default {
       let cameraZ = Math.abs(maxDim / 2 * Math.tan(fov * 2));
       cameraZ *= offset;
 
-      camera.position.z = 1 + center.z;
-      //camera.position.x = -center.x;
-      camera.position.y = -1.5;
+      camera.position.z = cameraZ;
+      camera.position.x = 1;
+      camera.position.y = 1.5;
 
       const minZ = boundingBox.min.z;
       const cameraToFarEdge = minZ < 0 ? -minZ + cameraZ : cameraZ - minZ;
       camera.far = cameraToFarEdge * 3;
 
       camera.updateProjectionMatrix();
-      camera.lookAt(new THREE.Vector3(0, 0, center.z));
+      camera.lookAt(new THREE.Vector3(0, center.y, 0));
     },
     animate: function(that) {
       if (!that.stop) {
@@ -267,8 +293,8 @@ export default {
       this.stop = true;
     },
     setLight: function(that) {
-      var light = new THREE.PointLight(0xffffff, 2, 0, 0.5);
-      light.position.set(-50, -200, 300);
+      var light = new THREE.PointLight(0xffffff, 1.5, 0, 0.5);
+      light.position.set(300, 300, 100);
       light.lookAt(new THREE.Vector3(0, 0, 0));
       that.scene.add(light);
     },
@@ -280,7 +306,7 @@ export default {
     },
     load3D: function() {
       this.scene = new THREE.Scene();
-      var loader = new THREE.ColladaLoader();
+      var loader = new ColladaLoader();
       var that = this;
       this.renderer = new THREE.WebGLRenderer({ alpha: true });
 
@@ -292,10 +318,10 @@ export default {
       );
 
       loader.load(
-        "/public/planx/Planx_RaisedBed_24x48_CedarPlanks_CityBrownPosts.dae",
+        "../../public/planx/Planx_RaisedBed_24x48_CedarPlanks_CityBrownPosts.dae",
         function(result) {
           that.cube = result.scene;
-          that.updateMaterial(that.cube, that.getRGBOption(that.body_color))
+          that.updateMaterial(that.cube, that.getRGBOption(that.body_color));
           that.scene.add(that.cube);
           that.setLight(that);
           that.cube.add(new THREE.AxesHelper(50));

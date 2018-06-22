@@ -98,7 +98,7 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Vue HN 2.0', // default title
+    title: 'cityscapes', // default title
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {
@@ -120,3 +120,5 @@ const port = process.env.PORT || 8080
 app.listen(port, () => {
   console.log(`server started at localhost:${port}`)
 })
+
+module.exports = app;

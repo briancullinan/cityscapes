@@ -2,7 +2,7 @@
     <div class="selected-image">
         <router-link class="close" :to="'/' + product + '/gallery'">&times;</router-link>
         <div class="selected-wrapper">
-            <img :src="'/public/' + product + '/' + image" />
+            <img :src="product && image ? ('/public/' + product + '/' + image) : '/public/blank.png'" />
         </div>
         <div class="selected-properties">
             <h3>PROJECT TYPE</h3>
@@ -29,7 +29,7 @@
 </template>
 
 <style lang="stylus">
-.selected-image {
+.gallery-container.image .selected-image {
     .close {
         text-shadow: 1px 2px 3px rgba(0, 0, 0, 1);
         display: block;
@@ -81,9 +81,8 @@
 </style>
 
 <script>
-
 export default {
   name: "gallery-image",
-  props: ['product', 'image']
+  props: ["product", "image"]
 };
 </script>

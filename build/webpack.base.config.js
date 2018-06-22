@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const CompressionPlugin = require("compression-webpack-plugin")
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -77,7 +78,10 @@ module.exports = {
       new webpack.optimize.ModuleConcatenationPlugin(),
       new ExtractTextPlugin({
         filename: 'common.[chunkhash].css'
-      })
+      }),
+      new CopyWebpackPlugin([
+        { from: 'public', to: 'public' }
+      ])
     ]
     : [
       new VueLoaderPlugin(),
