@@ -46,8 +46,59 @@ export default {
 </script>
 
 <style lang="stylus">
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '../node_modules/vue-material/dist/vue-material.min.css';
+@import '../node_modules/vue-material/dist/theme/black-green-light.css';
+
 *, :before, :after {
   box-sizing: border-box;
+}
+
+html, html.md-theme-default {
+  background: none !important;
+  background-color: transparent;
+
+  body {
+    line-height: inherit;
+  }
+
+  a[href], a[href]:hover, a[href]:not(.md-button), a[href]:not(.md-button):hover {
+    color: #34495e;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a.btn:not(.md-button) {
+    display: inline-block;
+    padding: 5px 8px;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(18, 49, 21, 0.7);
+    border: 2px solid #fff;
+    max-width: 250px;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    &, a:not(.md-button) {
+      color: #076323;
+    }
+  }
+
+  h1.angle-header, h1.angle-header a, h1.angle-header a:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  padding: 0;
+  font-weight: normal;
 }
 
 body, html {
@@ -65,13 +116,6 @@ body {
   overflow-y: scroll;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  padding: 0;
-  color: #076323;
-  font-weight: normal;
-}
-
 h1, h2 {
   text-align: center;
 }
@@ -79,7 +123,6 @@ h1, h2 {
 h1.angle-header {
   width: 100%;
   background: #076323;
-  color: white;
   position: relative;
   padding-top: 50px;
   padding-bottom: 20px;
@@ -102,7 +145,12 @@ h1.angle-header {
 
   i {
     background: white;
-    margin-top: -20px;
+    margin-top: -100px;
+    border-left: 2000px solid transparent;
+    border-right: 2000px solid transparent;
+    margin-left: -2000px;
+    border-top: 100px solid #076323;
+    z-index: -2;
   }
 
   &:before {
@@ -151,11 +199,6 @@ h1 strong, h2 strong, h3 strong {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-a[href] {
-  color: #34495e;
-  text-decoration: none;
 }
 
 .is-visible ~ * {
@@ -259,16 +302,6 @@ a[href] {
     bottom: 0;
     z-index: -1;
   }
-}
-
-a.btn {
-  display: inline-block;
-  padding: 5px 8px;
-  color: #fff;
-  text-transform: uppercase;
-  background: rgba(18, 49, 21, 0.7);
-  border: 2px solid #fff;
-  max-width: 250px;
 }
 
 .logo {

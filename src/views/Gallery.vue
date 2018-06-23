@@ -54,7 +54,7 @@
     padding-bottom: 60px;
 
     .selected-image {
-        .selected-wrapper, .selected-properties, .close {
+        .selected-wrapper, .selected-properties, .close, .share, .download {
             display: none;
         }
     }

@@ -18,16 +18,19 @@
     z-index: 999;
 }
 
-.builder-menu a {
-    flex-basis: 100%;
-    padding: 20px;
-    background: #076323;
-    color: white;
-    text-align: center;
+html, html.md-theme-default {
+    .builder-menu a, .builder-menu a[href]:not(.md-button) {
+        flex-basis: 100%;
+        padding: 20px;
+        background: #076323;
+        color: white;
+        text-align: center;
+        text-decoration: none;
 
-    &:active, &:focus, &:hover, &.router-link-active {
-        background: white;
-        color: #076323;
+        &:active, &:focus, &:hover, &.router-link-active {
+            background: white;
+            color: #076323;
+        }
     }
 }
 

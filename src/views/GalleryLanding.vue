@@ -58,14 +58,7 @@ export default {
   .product-container {
     position: absolute;
     top: 100%;
-    margin-top: -140px;
-  }
-
-  h1.angle-header {
-    margin-top: 0;
-    margin-bottom: 0;
-    border-top: 0;
-    padding-bottom: 50px;
+    margin-top: -130px;
   }
 
   .gallery-overlap {

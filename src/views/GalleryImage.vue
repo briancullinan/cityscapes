@@ -1,6 +1,12 @@
 <template>
     <div class="selected-image">
         <router-link class="close" :to="'/' + product + '/gallery'">&times;</router-link>
+        <a class="share" to="">
+            <md-icon class="md-size-2x">share</md-icon>
+        </a>
+        <a class="download" :href="product && image ? ('/public/' + product + '/' + image) : '/public/blank.png'">
+            <md-icon class="md-size-2x">get_app</md-icon>
+        </a>
         <div class="selected-wrapper">
             <img :src="product && image ? ('/public/' + product + '/' + image) : '/public/blank.png'" />
         </div>
@@ -30,7 +36,7 @@
 
 <style lang="stylus">
 .gallery-container.image .selected-image {
-    .close {
+    .close, .share, .download {
         text-shadow: 1px 2px 3px rgba(0, 0, 0, 1);
         display: block;
         position: fixed;
@@ -42,13 +48,27 @@
         color: white;
     }
 
+    .share {
+        left: auto;
+        right: 270px;
+    }
+
+    .download {
+        left: auto;
+        right: 320px;
+    }
+
+    .md-icon.md-theme-default.md-icon-font {
+        color: white;
+    }
+
     .selected-properties {
         display: block;
         position: absolute;
         top: 0;
         right: 0;
         min-height: 100%;
-        width: 200px;
+        width: 250px;
         z-index: 1002;
         background: white;
         padding: 20px;
@@ -78,17 +98,31 @@
         }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 800px) {
         .selected-properties {
             top: 100%;
             left: 0;
             width: 100%;
+        }
+
+        .share {
+            left: auto;
+            right: 20px;
+        }
+
+        .download {
+            left: auto;
+            right: 70px;
         }
     }
 }
 </style>
 
 <script>
+import Vue from "vue";
+import { MdIcon } from "vue-material/dist/components";
+Vue.use(MdIcon);
+
 export default {
   name: "gallery-image",
   props: ["product", "image"]

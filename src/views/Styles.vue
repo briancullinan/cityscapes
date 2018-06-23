@@ -5,99 +5,12 @@
 
     <div class="styles-wrapper">
       <h1 class="angle-header">
-        <strong>{{ product }} Options</strong>
+        <strong>{{ product }} Styles</strong>
         <i></i>
       </h1>
 
-      <h2 class="brand-outline">STEP 1</h2>
-      <h3>PANEL STYLE and COLOR</h3>
-
-      <div class="color-wrapper">
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#FEFCFD" style="background-color: rgb(254, 252, 253);"></div>
-            <span class="color-name">Alabaster </span>
-            <input name="body_color" type="radio" value="alabaster" v-model="body_color" checked="">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#E7E6CA" style="background-color: rgb(231, 230, 202);"></div>
-            <span class="color-name">Almond </span>
-            <input name="body_color" type="radio" value="almond" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#B7B294" style="background-color: rgb(183, 178, 148);"></div>
-            <span class="color-name">Cypress Moss </span>
-            <input name="body_color" type="radio" value="cypress_moss" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#2B4731" style="background-color: rgb(43, 71, 49);"></div>
-            <span class="color-name">Forrest Green </span>
-            <input name="body_color" type="radio" value="forrest_green" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#D8D2C6" style="background-color: rgb(216, 210, 198);"></div>
-            <span class="color-name">Shadow Gray </span>
-            <input name="body_color" type="radio" value="shadow_gray" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#766D5B" style="background-color: rgb(118, 109, 91);"></div>
-            <span class="color-name">Slate Gray </span>
-            <input name="body_color" type="radio" value="slate_gray" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#B2A088" style="background-color: rgb(178, 160, 136);"></div>
-            <span class="color-name">Oyster </span>
-            <input name="body_color" type="radio" value="oyster" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#E6DDCB" style="background-color: rgb(230, 221, 203);"></div>
-            <span class="color-name">Putty </span>
-            <input name="body_color" type="radio" value="putty" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#7D432D" style="background-color: rgb(125, 67, 45);"></div>
-            <span class="color-name">Ranchero Red </span>
-            <input name="body_color" type="radio" value="ranchero_red" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#BD9861" style="background-color: rgb(189, 152, 97);"></div>
-            <span class="color-name">Sagebrush </span>
-            <input name="body_color" type="radio" value="sagebrush" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#D4B98C" style="background-color: rgb(212, 185, 140);"></div>
-            <span class="color-name">Khaki </span>
-            <input name="body_color" type="radio" value="khaki" v-model="body_color">
-          </label>
-        </div>
-        <div class="color">
-          <label for="body_color">
-            <div class="color-box img-radio" data-color="#493420" style="background-color: rgb(73, 52, 32);"></div>
-            <span class="color-name">Mansard Brown </span>
-            <input name="body_color" type="radio" value="mansard_brown" v-model="body_color">
-          </label>
-        </div>
-      </div>
+      <h2 class="brand-outline">STEP 2</h2>
+      <styles-post-colors v-model="post_color"></styles-post-colors>
 
     </div>
 
@@ -138,25 +51,44 @@
     background: white;
   }
 
+  h1 {
+    margin-top: 0;
+  }
+
   h2, h3 {
-    padding: 20px;
+    padding: 0;
+    margin: 0;
   }
 
   .color-wrapper {
     padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
 
-    .color {
+    li {
       text-align: center;
       width: 50%;
+      list-style: none;
+      margin: 0;
+      padding: 60px 0 0;
+    }
+
+    .md-radio .md-radio-label {
+      padding-left: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
     }
   }
 
   .color-box {
     height: 60px;
     width: 60px;
-    margin: 0 auto;
+    margin: -60px auto 0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
   }
 
   .brand-outline {
@@ -167,7 +99,7 @@
   @media (max-width: 800px) {
     .styles-wrapper {
       top: 100%;
-      margin-top: -180px;
+      margin-top: -160px;
       left: 0;
       width: 100%;
       padding-top: 0;
@@ -193,9 +125,10 @@
 
 <script>
 import BuilderMenu from "./BuilderMenu.vue";
+import StylesPostColors from "./StylesPostColors.vue";
 import * as THREE from "three";
 import { ColladaLoader } from "../util/ColladaLoader";
-const camelize = str => str.charAt(0).toUpperCase() + str.slice(1)
+const camelize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
 export default {
   name: "styles",
@@ -203,31 +136,31 @@ export default {
     return camelize(`${this.product} ${this.$options.name}`);
   },
   props: ["product"],
-  components: { BuilderMenu },
+  components: { BuilderMenu, StylesPostColors },
   data() {
     return {
-      body_color: "alabaster"
+      post_color: "#000000"
     };
   },
   mounted: function() {
     this.load3D();
+    window.addEventListener("resize", this.updateWindowSize);
   },
   watch: {
-    body_color: function() {
-      this.updateMaterial(this.cube, this.getRGBOption(this.body_color));
+    post_color: function() {
+      this.updateMaterial(this.cube, this.hexToRgb(this.post_color));
     }
   },
+  beforeDestroy: function() {
+    this.stop = true;
+    window.removeEventListener("resize", this.updateWindowSize);
+  },
   methods: {
-    getRGBOption(color) {
-      var selected = document.evaluate(
-        '//input[contains(@value, "' +
-          color +
-          '")]/parent::label/*[contains(@class, "color-box")]/@data-color',
-        document,
-        null,
-        XPathResult.STRING_TYPE
-      );
-      return this.hexToRgb(selected.stringValue);
+    updateWindowSize: function () {
+      var container = document.getElementsByClassName("preview-image")[0];
+      this.renderer.setSize(container.clientWidth, container.clientHeight);
+      this.camera.aspect = container.clientWidth / container.clientHeight;
+      this.camera.updateProjectionMatrix();
     },
     updateMaterial: function(cube, rgb) {
       if (cube.material) {
@@ -292,10 +225,6 @@ export default {
       that.cube.rotation.z += 0.01;
       that.renderer.render(that.scene, that.camera);
     },
-    beforeDestroy: function() {
-      console.log("stopping");
-      this.stop = true;
-    },
     setLight: function(that) {
       var light = new THREE.PointLight(0xffffff, 1.5, 0, 0.5);
       light.position.set(300, 300, 100);
@@ -303,7 +232,7 @@ export default {
       that.scene.add(light);
     },
     mount3D: function(that) {
-      that.renderer.setSize(window.innerWidth, window.innerHeight - 120);
+      that.updateWindowSize.apply(that);
       document
         .getElementsByClassName("preview-image")[0]
         .appendChild(that.renderer.domElement);
@@ -313,19 +242,18 @@ export default {
       var loader = new ColladaLoader();
       var that = this;
       this.renderer = new THREE.WebGLRenderer({ alpha: true });
-
       this.camera = new THREE.PerspectiveCamera(
         75,
-        window.innerWidth / window.innerHeight,
+        4/3,
         0.1,
         1000
       );
 
       loader.load(
-        "../../public/planx/Planx_RaisedBed_24x48_CedarPlanks_CityBrownPosts.dae",
+        "../../public/envisor/envisor-canted.dae",
         function(result) {
           that.cube = result.scene;
-          that.updateMaterial(that.cube, that.getRGBOption(that.body_color));
+          that.updateMaterial(that.cube, that.hexToRgb(that.post_color));
           that.scene.add(that.cube);
           that.setLight(that);
           that.cube.add(new THREE.AxesHelper(50));

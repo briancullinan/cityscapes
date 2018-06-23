@@ -206,6 +206,7 @@ export default {
     .cta-box {
         background: rgba(255, 255, 255, 0.5);
         border-radius: 2px;
+        color: #076323;
     }
 
     .features, .cta-box, .image-box {
@@ -225,6 +226,11 @@ export default {
     }
 
     @media (max-width: 800px) {
+
+        .image-wrapper {
+            flex-basis: 100%;
+        }
+        
         .features, .cta-box, .image-box {
             flex-basis: 100%;
             width: 100%;
