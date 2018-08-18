@@ -124,6 +124,7 @@ export default {
     h1.angle-header {
         margin-top: 0;
         margin-bottom: 0;
+        background: #076323;
 
         i {
             display: none;
@@ -149,6 +150,7 @@ export default {
         top: 100%;
         margin-top: -180px;
         padding-bottom: 60px;
+        width:100%;
     }
 
     .applications-wrapper {

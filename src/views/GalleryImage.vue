@@ -36,7 +36,7 @@
 
 <style lang="stylus">
 .gallery-container.image .selected-image {
-    .close, .share, .download {
+    .close, .share, .download, .close:not(.md-button), .share:not(.md-button), .download:not(.md-button),  {
         text-shadow: 1px 2px 3px rgba(0, 0, 0, 1);
         display: block;
         position: fixed;
@@ -48,12 +48,12 @@
         color: white;
     }
 
-    .share {
+    .share, .share:not(.md-button) {
         left: auto;
         right: 270px;
     }
 
-    .download {
+    .download, .download:not(.md-button) {
         left: auto;
         right: 320px;
     }

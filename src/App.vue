@@ -145,11 +145,11 @@ h1.angle-header {
 
   i {
     background: white;
-    margin-top: -100px;
+    margin-top: -120px;
     border-left: 2000px solid transparent;
     border-right: 2000px solid transparent;
     margin-left: -2000px;
-    border-top: 100px solid #076323;
+    border-top: 120px solid #076323;
     z-index: -2;
   }
 

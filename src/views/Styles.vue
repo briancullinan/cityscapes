@@ -45,6 +45,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    min-height: 100%;
     width: 250px;
     bottom: auto;
     padding: 60px 0 80px;
@@ -196,7 +197,7 @@ export default {
         : null;
     },
     setCamera: function(camera, cube) {
-      const offset = 0;
+      const offset = 2;
       const boundingBox = new THREE.Box3();
       boundingBox.setFromObject(cube);
       const center = boundingBox.getCenter();

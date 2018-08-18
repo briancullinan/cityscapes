@@ -98,7 +98,8 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'cityscapes', // default title
+    title: 'cityscapes', // default 
+    meta: 'Architectural products for people who care about design.',
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {
